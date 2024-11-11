@@ -32,6 +32,7 @@ public class UI_NetManager : NetworkBehaviour
         {
              _mySpawnController.SpawnAllPlayers(); 
             _startBttn.gameObject.SetActive(false);     
+            //_socialPanel.SetActive(false);
         }
 
     }
