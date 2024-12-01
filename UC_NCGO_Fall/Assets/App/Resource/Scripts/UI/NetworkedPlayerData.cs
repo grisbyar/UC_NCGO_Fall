@@ -18,6 +18,7 @@ public class NetworkedPlayerData : NetworkBehaviour
    {
     //avoid mem leaks by ini network list here
     _allConnectedPlayers = new NetworkList<PlayerInfoData>(readPerm: NetworkVariableReadPermission.Everyone);
+    //shouldn't need to dispose of this but keep getting an error?
    }
 
     public override void OnNetworkSpawn()
@@ -37,6 +38,11 @@ public class NetworkedPlayerData : NetworkBehaviour
         if(IsServer)
         {
             NetworkManager.Singleton.OnConnectionEvent -= OnConnectionEvents;
+        }
+        //clears the memory leak
+        if (_allConnectedPlayers != null)
+        {
+        _allConnectedPlayers.Clear();
         }
         base.OnNetworkDespawn();
     }

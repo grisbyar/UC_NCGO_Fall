@@ -388,6 +388,7 @@ MonoBehaviour:
   _myNetAnimator: {fileID: 6438544741397645469}
   _pSpeed: 0
   _pTransform: {fileID: 6533558809661977324}
+  _bulletSpawner: {fileID: 0}
   _CC: {fileID: 5135015747665749459}
 --- !u!114 &2868605665659321269
 MonoBehaviour:

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class LobbyManager : NetworkBehaviour
 {
- [SerializeField] private Button _startBttn, _leaveBttn, _readyBttn;
+ [SerializeField] private Button _startBttn, _leaveBttn, _readyBttn, _kickBttn;
  [SerializeField] private GameObject _panelPrefab; //the prefab we place inside of contents
  [SerializeField] private GameObject _ContentGO; //where we are spawning panelPrefabs to
  [SerializeField] private TMP_Text rdyTxt; // update status to user
@@ -96,7 +96,7 @@ private void NetPlayersChanged(NetworkListEvent<PlayerInfoData> changeevent)
 }
 
 //populate panels
-[ContextMenu("PopulateLabel")]
+[ContextMenu("PopulateLabels")]
 private void PopulateLabels()
 {
     //ClearPanels
@@ -138,7 +138,7 @@ private void PopulateLabels()
             allReady = false;
         }
 
-        //Check if everyone is ready, host should see if it's reeady or not
+        //Check if everyone is ready, host should see if it's ready or not
         if(allReady)
         {
             if(_networkPlayers._allConnectedPlayers.Count > 1)
