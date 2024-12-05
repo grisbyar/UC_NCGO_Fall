@@ -31,6 +31,7 @@ public class UI_NetManager : NetworkBehaviour
         if(IsServer)
         {
              _mySpawnController.SpawnAllPlayers(); 
+            _mySpawnController.SpawnSpawnerGameObject();
             _startBttn.gameObject.SetActive(false);     
             //_socialPanel.SetActive(false);
         }

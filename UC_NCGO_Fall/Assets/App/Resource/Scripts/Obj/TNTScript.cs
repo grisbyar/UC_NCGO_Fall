@@ -10,6 +10,8 @@ public class TNTScript : NetworkBehaviour
    
    [SerializeField] public float _fuseTimer = 4f;
    public NetworkObject ExplosionPrefab;
+   //[SerializeField] public Image _fuseTimerImage;
+
 
    public override void OnNetworkSpawn()
    {
@@ -32,7 +34,7 @@ public class TNTScript : NetworkBehaviour
    public void TriggerExplosionRpc()
    {
     NetworkObject explosive = NetworkManager.Instantiate(ExplosionPrefab, transform.position, transform.rotation);
-    ExplosionPrefab.Spawn(true);
+    explosive.Spawn(true);
     this.NetworkObject.Despawn();
    }
 

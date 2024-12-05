@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6931811822614268651}
   - component: {fileID: 4594465547304566658}
   - component: {fileID: -3898276184902739953}
-  - component: {fileID: -6272639935323768306}
   - component: {fileID: 9220907085886973163}
   m_Layer: 0
   m_Name: TNT
@@ -113,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4148064385
+  GlobalObjectIdHash: 214218863
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -135,20 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fuseTimer: 4
-  ExplosionPrefab: {fileID: 0}
---- !u!114 &-6272639935323768306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931811822614268645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e62d36e087488ca42941368d1d2f91fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 40
+  ExplosionPrefab: {fileID: 732065014725525429, guid: b42bfa2dc3336cd488c721c6ae6014c1, type: 3}
 --- !u!54 &9220907085886973163
 Rigidbody:
   m_ObjectHideFlags: 0

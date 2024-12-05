@@ -17,11 +17,19 @@ public class AllSpawner : NetworkBehaviour
    [SerializeField] private GameObject ground; //ground
     private Vector3 targetPosition; // where it is
    private bool isSpawning = true;
-    void Start()
+    
+    
+    
+    public override void OnNetworkSpawn()
     {
+            //Debug.Log($"IsServer: {IsServer}, IsOwner: {IsOwner}");
+
+        base.OnNetworkSpawn();
         if(IsServer)
         {
+            PickRandomLocation(); // make sure there is a location set on initialization
             StartCoroutine(WalkAndSpawnObjects()); // tell to start spawning on game start
+            
         }
     }
     //handles walking
@@ -45,8 +53,10 @@ public class AllSpawner : NetworkBehaviour
     //look for random location to go to
      private void PickRandomLocation()
     {
-        Debug.Log("PickRandomLocation");
+        //Debug.Log("PickRandomLocation");
         // get the bounds of the ground
+         this.ground = GameObject.FindWithTag("Ground");
+
         Renderer groundRenderer = this.ground.GetComponent<Renderer>();
         Bounds groundBounds = groundRenderer.bounds;
 
@@ -60,7 +70,7 @@ public class AllSpawner : NetworkBehaviour
     //spawner coroutine
     private IEnumerator WalkAndSpawnObjects(){
         while(isSpawning){
-            Debug.Log("PickRandomLocation");
+            //Debug.Log("PickRandomLocation");
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
             BurstItems();
         }
@@ -68,7 +78,7 @@ public class AllSpawner : NetworkBehaviour
     
      private void SpawnRandomItem()
     {
-        Debug.Log("Choosing Items");
+        //Debug.Log("Choosing Items");
         // choose a prefab
         GameObject itemPrefab = spawnableItems[Random.Range(0, spawnableItems.Length)];
         
@@ -90,7 +100,7 @@ public class AllSpawner : NetworkBehaviour
     {
         for (int i = 0; i < itemsPerBurst; i++)
         {
-            Debug.Log("Spawning Items");
+            //Debug.Log("Spawning Items");
 
             SpawnRandomItem();
         }

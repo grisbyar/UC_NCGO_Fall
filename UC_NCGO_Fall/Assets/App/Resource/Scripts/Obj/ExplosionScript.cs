@@ -9,11 +9,20 @@ public class ExplosionScript : NetworkBehaviour
 {
     [SerializeField] public float _damage = 40;
 
+
+    public void EndAnimEvent()
+    {
+        //Debug.Log("animation event triggered");
+        if (IsServer)
+        {
+            EndAnimRpc();
+        } 
+    }
     //triggered by animation
     [Rpc(SendTo.Server)]
     public void EndAnimRpc()
     {
-        NetworkObject.Despawn();
+        this.NetworkObject.Despawn();
     }
 
     private void OnCollisionEnter(Collision other)

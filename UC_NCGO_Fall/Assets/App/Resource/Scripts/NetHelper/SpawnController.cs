@@ -8,7 +8,8 @@ public class SpawnController : NetworkBehaviour
 {
     [SerializeField]
     private NetworkObject _playerPrefab;
-    
+    [SerializeField]
+    private NetworkObject _allSpawnerPrefab;
     [SerializeField]
     private Transform[] _spawnPoints;
 
@@ -73,7 +74,14 @@ public class SpawnController : NetworkBehaviour
         }
     }
 
+    public void SpawnSpawnerGameObject(){
+        
+        //get random spawner and spawn the all spawner there
+        int randomNumber = UnityEngine.Random.Range(1, 9);
 
+        NetworkObject _allSpawnerObject = NetworkManager.Instantiate(_allSpawnerPrefab, _spawnPoints[randomNumber].position,_spawnPoints[randomNumber].rotation);            //spawn it in a location based off the spawn array
+        _allSpawnerObject.Spawn();
+    }
     
     public void SpawnAllPlayers()
     {

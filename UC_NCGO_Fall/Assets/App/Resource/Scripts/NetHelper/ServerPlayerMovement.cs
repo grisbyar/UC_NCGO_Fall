@@ -20,7 +20,6 @@ public class ServerPlayerMovement : NetworkBehaviour
     Vector3 _moveDirection = new Vector3(0,0f,0);
 
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -34,12 +33,14 @@ public class ServerPlayerMovement : NetworkBehaviour
         _playerInput.Enable();    
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(IsOwner) return; 
+        if(!IsOwner) return; 
+        // should not be moving because it shouldn't be the owner
         //read our player input from new system\
         Vector2 moveInput = _playerInput.Player.Movement.ReadValue<Vector2>();
+        //normalize move input
+        moveInput = moveInput.normalized;
 
         bool isJumping = _playerInput.Player.Jumping.triggered;
         bool isPunching = _playerInput.Player.Punching.triggered;

@@ -17,8 +17,10 @@ namespace App.Resource.Scripts.Obj
         [Rpc(SendTo.Server, RequireOwnership = false)]
         public void FireProjectileRpc(RpcParams rpcParams = default)
         {
+            Debug.Log("Projectile firing");
             if (_ammo.Value > 0)
             {
+                Debug.Log("222 Projectile firing");
                 //spawn our bullet at your starting point position and use spawn with ownership so we can own the projectile
                 NetworkObject newProjectile = NetworkManager.Instantiate(_ProjectilePrefab, _startingPoint.position, _startingPoint.rotation);
 
