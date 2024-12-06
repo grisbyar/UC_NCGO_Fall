@@ -20,7 +20,7 @@ namespace App.Resource.Scripts.Obj
             Debug.Log("Projectile firing");
             if (_ammo.Value > 0)
             {
-                Debug.Log("222 Projectile firing");
+                Debug.Log($"222 Projectile firing: ammo left: {_ammo}");
                 //spawn our bullet at your starting point position and use spawn with ownership so we can own the projectile
                 NetworkObject newProjectile = NetworkManager.Instantiate(_ProjectilePrefab, _startingPoint.position, _startingPoint.rotation);
 

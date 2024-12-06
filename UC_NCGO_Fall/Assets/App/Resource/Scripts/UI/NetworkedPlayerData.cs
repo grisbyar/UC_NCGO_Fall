@@ -35,15 +35,12 @@ public class NetworkedPlayerData : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        if(IsServer)
+        if(IsServer && _allConnectedPlayers != null)
         {
             NetworkManager.Singleton.OnConnectionEvent -= OnConnectionEvents;
+            _allConnectedPlayers.Clear();
         }
-        //clears the memory leak
-        if (_allConnectedPlayers != null)
-        {
-        _allConnectedPlayers.Clear();
-        }
+        //clears memory leak
         base.OnNetworkDespawn();
     }
 
@@ -73,7 +70,7 @@ public class NetworkedPlayerData : NetworkBehaviour
     
     if(_serverLocalID == clientID)
     {
-        _playerInfoData._isPlayerReady = false;
+        _playerInfoData._isPlayerReady = true;
     }
     _players++;
 

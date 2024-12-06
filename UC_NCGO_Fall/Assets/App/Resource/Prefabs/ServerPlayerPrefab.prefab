@@ -426,7 +426,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6533558809661977296
@@ -447,7 +447,6 @@ GameObject:
   - component: {fileID: 1950019914343854283}
   - component: {fileID: 6438544741397645469}
   - component: {fileID: 3450369956648873839}
-  - component: {fileID: 4775188273793126783}
   - component: {fileID: 8029646418049423081}
   m_Layer: 0
   m_Name: ServerPlayerPrefab
@@ -481,14 +480,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6533558809661977296}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 100
+  m_Drag: 7
+  m_AngularDrag: 10
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &3116195481894615146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myAnimator: {fileID: 1950019914343854283}
   _myNetAnimator: {fileID: 6438544741397645469}
-  _pSpeed: 0
+  _pSpeed: 5
   _pTransform: {fileID: 6533558809661977324}
   _bulletSpawner: {fileID: 8029646418049423081}
   _CC: {fileID: 5135015747665749459}
@@ -684,21 +683,6 @@ MonoBehaviour:
   _Health:
     m_InternalValue: 100
   _healthBar: {fileID: 6539109060295853036}
---- !u!114 &4775188273793126783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533558809661977296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62cfb9e8490cf6e4e8a3f688c0b5eba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 40
-  _damage: 10
-  destructTime: 5
 --- !u!114 &8029646418049423081
 MonoBehaviour:
   m_ObjectHideFlags: 0

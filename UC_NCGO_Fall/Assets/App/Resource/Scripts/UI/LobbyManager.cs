@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class LobbyManager : NetworkBehaviour
 {
- [SerializeField] private Button _startBttn, _leaveBttn, _readyBttn, _kickBttn;
+ [SerializeField] private Button _startBttn, _leaveBttn, _readyBttn;
  [SerializeField] private GameObject _panelPrefab; //the prefab we place inside of contents
  [SerializeField] private GameObject _ContentGO; //where we are spawning panelPrefabs to
  [SerializeField] private TMP_Text rdyTxt; // update status to user
@@ -161,7 +161,7 @@ private void PopulateLabels()
 private void KickUserBttn(ulong kickTarget)
 {
 
-    if(!IsServer || IsHost) return;
+    if(!IsServer || !IsHost) return; //cannot kick the host/server
 
     foreach(PlayerInfoData playerData in _networkPlayers._allConnectedPlayers)
     {
