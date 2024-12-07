@@ -14,7 +14,7 @@ namespace App.Resource.Scripts.Player
         [SerializeField] private NetworkVariable<float> _Health = new NetworkVariable<float>(100);
         public Image _healthBar;
 
-        // private GameScript _gameScript;
+        //private GameScript _gameScript;
 
         public override void OnNetworkSpawn()
         {
@@ -39,8 +39,7 @@ namespace App.Resource.Scripts.Player
                 if (newValue < 0f)
                 {
                     //talk to game script
-                    // FindObjectOfType<GameScript>().PlayerDeathRpc();
-                    //GetComponentInParent<>()
+                    FindObjectOfType<GameScript>().PlayerDeathRpc();
                     HasDiedRpc();
                 }
             }
